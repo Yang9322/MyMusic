@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MusicController.h
 //  MyMusic
 //
-//  Created by He yang on 16/1/7.
+//  Created by He yang on 16/1/10.
 //  Copyright © 2016年 He yang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MusicController : UIViewController
 
 @end
-
