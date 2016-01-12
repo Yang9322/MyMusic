@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Music Controller-->
         <scene sceneID="wQX-D4-BZW">
             <objects>
-                <viewController id="PMZ-Zu-jnz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="music" id="PMZ-Zu-jnz" customClass="MusicController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7xR-Lv-nnF"/>
                         <viewControllerLayoutGuide type="bottom" id="aWs-XZ-olh"/>
@@ -24,6 +24,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rga-KY-BYe">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" red="0.56576377467105265" green="0.70060649671052633" blue="0.55461040296052633" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBM-iu-jzm">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -43,10 +44,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WP9-ex-Iyg">
-                                <rect key="frame" x="0.0" y="47" width="320" height="313"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="293"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PEJ-UN-pM6">
-                                        <rect key="frame" x="35" y="31" width="250" height="250"/>
+                                        <rect key="frame" x="35" y="21" width="250" height="250"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PEJ-UN-pM6" secondAttribute="height" multiplier="1:1" id="BHs-Ra-ewD"/>
                                         </constraints>
@@ -61,15 +62,39 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFp-yN-Ddn">
                                 <rect key="frame" x="0.0" y="360" width="320" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANL-Y5-j43">
+                                        <rect key="frame" x="139" y="20" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmt-kb-Kku">
+                                        <rect key="frame" x="139" y="45.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knr-PC-vIA">
+                                        <rect key="frame" x="8" y="25" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="ANL-Y5-j43" firstAttribute="top" secondItem="hFp-yN-Ddn" secondAttribute="top" constant="20" id="GM3-tu-GNG"/>
+                                    <constraint firstItem="rmt-kb-Kku" firstAttribute="centerX" secondItem="hFp-yN-Ddn" secondAttribute="centerX" id="O72-Wt-7vP"/>
+                                    <constraint firstItem="rmt-kb-Kku" firstAttribute="top" secondItem="ANL-Y5-j43" secondAttribute="bottom" constant="5" id="Tih-IF-vOh"/>
+                                    <constraint firstItem="knr-PC-vIA" firstAttribute="centerY" secondItem="hFp-yN-Ddn" secondAttribute="centerY" id="Vda-96-dio"/>
+                                    <constraint firstItem="knr-PC-vIA" firstAttribute="leading" secondItem="hFp-yN-Ddn" secondAttribute="leading" constant="8" id="X6W-Wo-5tS"/>
+                                    <constraint firstItem="ANL-Y5-j43" firstAttribute="centerX" secondItem="hFp-yN-Ddn" secondAttribute="centerX" id="ebW-lL-y0O"/>
                                     <constraint firstAttribute="height" constant="80" id="g9v-Gr-jQA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrs-2N-E9X">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="47"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-NA-D00">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-NA-D00">
                                         <rect key="frame" x="66" y="13" width="188" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Rze-Wd-42T"/>
@@ -85,6 +110,9 @@
                                             <constraint firstAttribute="width" constant="46" id="rOG-2k-Ddn"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="dismissBtnClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="VRQ-98-YvJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkI-nc-lKX">
                                         <rect key="frame" x="10" y="8" width="46" height="30"/>
@@ -133,7 +161,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C1s-QD-toV">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C1s-QD-toV" customClass="MusicSlider">
                                                 <rect key="frame" x="43" y="3" width="218" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="b1R-0g-sMf"/>
@@ -155,25 +183,38 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAh-ft-X71">
                                         <rect key="frame" x="0.0" y="36" width="320" height="72"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-x3-7zM">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="72"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27W-eD-TcZ">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27W-eD-TcZ">
                                                 <rect key="frame" x="64" y="0.0" width="64" height="72"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" image="prev_song"/>
+                                                <connections>
+                                                    <action selector="musicPreviousButtonClikcked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="471-hO-th0"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReS-fN-5nc">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReS-fN-5nc">
                                                 <rect key="frame" x="128" y="0.0" width="64" height="72"/>
-                                                <state key="normal" title="Button"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <state key="normal" image="big_play_button"/>
+                                                <connections>
+                                                    <action selector="musicToggleButtonClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="Ojg-67-b5e"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPt-y6-hio">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPt-y6-hio">
                                                 <rect key="frame" x="256" y="0.0" width="64" height="72"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" image="more_icon"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR8-or-Hc4">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-x3-7zM">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="72"/>
+                                                <state key="normal" image="shuffle_icon"/>
+                                                <connections>
+                                                    <action selector="musicCycleButtonClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="aUz-RW-vYH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR8-or-Hc4">
                                                 <rect key="frame" x="192" y="0.0" width="64" height="72"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" image="next_song"/>
+                                                <connections>
+                                                    <action selector="musicNextButtonClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="L2w-wY-fec"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -241,24 +282,50 @@
                             <constraint firstAttribute="trailing" secondItem="a1H-Nh-mUL" secondAttribute="trailing" id="orW-KJ-dMf"/>
                             <constraint firstAttribute="trailing" secondItem="Zrs-2N-E9X" secondAttribute="trailing" id="rDM-Q8-3kg"/>
                             <constraint firstItem="aWs-XZ-olh" firstAttribute="top" secondItem="a1H-Nh-mUL" secondAttribute="bottom" id="vIp-DE-cHf"/>
+                            <constraint firstItem="a1H-Nh-mUL" firstAttribute="top" secondItem="7xR-Lv-nnF" secondAttribute="bottom" constant="-20" id="xkT-3B-2r1"/>
                             <constraint firstItem="Zrs-2N-E9X" firstAttribute="leading" secondItem="mHn-Ym-y7y" secondAttribute="leading" id="yHY-zB-Wn3"/>
                             <constraint firstItem="mf7-Ku-ZSE" firstAttribute="top" secondItem="hFp-yN-Ddn" secondAttribute="bottom" id="z9G-W5-aET"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zrs-2N-E9X" secondAttribute="trailing" id="zpy-FQ-4xV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="PsC-Z9-VOv"/>
                                 <exclude reference="Fc2-JO-9uN"/>
                                 <exclude reference="fBE-Au-8jr"/>
                                 <exclude reference="zpy-FQ-4xV"/>
                             </mask>
                         </variation>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="albumImageView" destination="PEJ-UN-pM6" id="V7L-Vm-AJZ"/>
+                        <outlet property="backgroudImageView" destination="Rga-KY-BYe" id="B0p-Sv-Le2"/>
+                        <outlet property="backgroundView" destination="a1H-Nh-mUL" id="P8e-ck-020"/>
+                        <outlet property="beginTimeLabel" destination="lqs-eS-Kz9" id="6Lh-SZ-yLy"/>
+                        <outlet property="endTimeLabel" destination="3ks-Wm-mC7" id="ZFr-mZ-TWE"/>
+                        <outlet property="favoriteButton" destination="knr-PC-vIA" id="KCt-FJ-p2e"/>
+                        <outlet property="leadingContraint" destination="CJW-MD-eKu" id="j2U-MH-fYi"/>
+                        <outlet property="menuButton" destination="WPt-y6-hio" id="2fQ-Ag-Tdk"/>
+                        <outlet property="musicCycleButton" destination="F2v-x3-7zM" id="vgr-GP-s5b"/>
+                        <outlet property="musicSlider" destination="C1s-QD-toV" id="RUp-m9-C3o"/>
+                        <outlet property="musicTitleLabel" destination="ANL-Y5-j43" id="MdY-gh-e7F"/>
+                        <outlet property="musicToggleButton" destination="ReS-fN-5nc" id="k43-lL-xlH"/>
+                        <outlet property="nextMusicButton" destination="yR8-or-Hc4" id="TXg-bT-5rH"/>
+                        <outlet property="previousMusicButton" destination="27W-eD-TcZ" id="CrQ-Nh-80G"/>
+                        <outlet property="singerLabel" destination="rmt-kb-Kku" id="rcj-TV-jKs"/>
+                        <outlet property="trailingContraints" destination="TP3-8H-9dt" id="TKW-91-r75"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCi-7S-W8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="259" y="341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="big_play_button" width="25" height="17"/>
+        <image name="more_icon" width="25" height="17"/>
+        <image name="next_song" width="25" height="17"/>
+        <image name="prev_song" width="25" height="17"/>
+        <image name="shuffle_icon" width="25" height="17"/>
+    </resources>
 </document>

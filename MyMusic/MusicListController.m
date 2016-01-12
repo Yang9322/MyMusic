@@ -7,6 +7,7 @@
 //
 
 #import "MusicListController.h"
+#import "MusicController.h"
 #import "MJRefresh/MJRefresh.h"
 #import "MusicEntity.h"
 #import "MJExtension.h"
@@ -36,6 +37,8 @@
     ChildIndicatorView *indicator = [ChildIndicatorView sharedInstance];
     indicator.hidesWhenStopped = NO;
     indicator.tintColor = [UIColor blueColor];
+    HYDBAnyVar(indicator.state);
+
     if (indicator.state != IndicatorViewStatePlaying) {
         indicator.state = IndicatorViewStatePlaying;
         indicator.state = IndicatorViewStateStopped;
@@ -43,12 +46,26 @@
         indicator.state = IndicatorViewStatePlaying;
     }
     
+    indicator.state = IndicatorViewStatePlaying;
+    
     [self.navigationController.navigationBar addSubview:indicator];
     
-    //    UITapGestureRecognizer *tapInditator = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapIndicator)];
-    //    tapInditator.numberOfTapsRequired = 1;
-    //    [indicator addGestureRecognizer:tapInditator];
+        UITapGestureRecognizer *tapInditator = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapIndicator)];
+        tapInditator.numberOfTapsRequired = 1;
+        [indicator addGestureRecognizer:tapInditator];
     
+}
+
+
+
+-(void)handleTapIndicator{
+    MusicController *musicVC = [MusicController sharedInstance];
+//    if (musicVC.musicEntities.count == 0) {
+//        [self showMiddleHint:@"暂无正在播放的歌曲"];
+//        return;
+//    }
+//    musicVC.dontReloadMusic = YES;
+    [self presentVCWith:musicVC];
 }
 
 
@@ -123,8 +140,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    MusicController *vc = [MusicController sharedInstance];
+    vc.musicEntities = _musicEntities;
+    vc.musicTitle = self.navigationItem.title;
+    vc.specialIndex = indexPath.row;
+    [self presentVCWith:vc];
+    
     [self updateIndicatorWithIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)presentVCWith:(MusicController *)vc{
+    UINavigationController *navVc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.navigationController presentViewController:navVc animated:YES completion:nil];
 }
 
 
