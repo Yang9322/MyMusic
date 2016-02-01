@@ -12,6 +12,7 @@
 #import "BaseHelper.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+Animations.h"
+#import "MusicHandler.h"
 
 @interface MusicController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingContraint;
@@ -130,8 +131,33 @@
     _musicEntity = entity;
     _musicTitleLabel.text = _musicEntity.title;
     _singerLabel.text = _musicEntity.artist;
-    
+    _musicTitleLabel.text = _musicTitle;
+    [self setupBackgroundImage];
+    [self checkMusicFavoritedIcon];
+}
 
+
+
+-(void)setupBackgroundImage{
+    
+    _albumImageView.layer.cornerRadius = 7;
+    _albumImageView.layer.masksToBounds = YES;
+    
+    NSString *imageWidth = [NSString stringWithFormat:@"%.f",(SCREEN_WIDTH - 70) *2];
+    NSURL *imageUrl = [BaseHelper qiniuImageCenter:_musicEntity.pic withWidth:imageWidth withHeight:imageWidth];
+    [_backgroudImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"music_placeholder"]];
+    [_albumImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"music_placeholder"]];
+    if (![_visualEffectView isDescendantOfView:_backgroundView]) {
+        UIVisualEffect *blurEffect;
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        _visualEffectView.frame = self.view.bounds;
+        [_backgroundView addSubview:_visualEffectView];
+
+    }
+    
+    [_backgroudImageView startTransitionAnimation];
+    [_albumImageView startTransitionAnimation];
 }
 
 - (void)setupRadioMusicIfNeeded {
@@ -205,6 +231,14 @@
 }
 
 
+#pragma mark music convenient method
+
+-(void) loadPreviousAndNextMusicImage{
+    [MusicHandler cacheMusicCoverWithMusicEntities:_musicEntities currentIndex:_currentIndex];
+
+}
+
+
 #pragma mark - handle music slider
 -(void)updateSliderValue{
     
@@ -221,7 +255,9 @@
     }
     [self setupMusicViewWithMusicEntity:_musicEntities[_currentIndex]];
 
+    [self loadPreviousAndNextMusicImage];
     
+    [MusicHandler configNowPlayingInfoCenter];
 }
 
 
@@ -252,6 +288,26 @@
     } else {
         [_favoriteButton setImage:[UIImage imageNamed:@"empty_heart"] forState:UIControlStateNormal];
     }
+}
+
+
+#pragma mark MusicControllerDelegate
+- (void)updateMusicsCellsState {
+    if (_delegate && [_delegate respondsToSelector:@selector(updatePlaybackIndicatorOfVisisbleCells)]) {
+        [_delegate updatePlaybackIndicatorOfVisisbleCells];
+    }
+}
+
+
+
+#pragma mark public method
+
+- (MusicEntity *)currentPlayingMusic {
+    if (_musicEntities.count == 0) {
+        _musicEntities = nil;
+    }
+    
+    return _musicEntities[_currentIndex];
 }
 
 /*
