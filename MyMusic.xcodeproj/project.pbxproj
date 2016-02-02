@@ -75,7 +75,12 @@
 		3B3311FF1C4508B200EABF17 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3311EE1C4508B200EABF17 /* UIImageView+WebCache.m */; };
 		3B3312001C4508B200EABF17 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3311F01C4508B200EABF17 /* UIView+WebCacheOperation.m */; };
 		3B3312031C450AA100EABF17 /* UIView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3312021C450AA100EABF17 /* UIView+Animations.m */; };
+		3B3F990E1C604CBA004E17E9 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F990D1C604CBA004E17E9 /* NSString+Additions.m */; };
+		3B3F99121C604F0D004E17E9 /* 1770040300_2031329_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F990F1C604F0D004E17E9 /* 1770040300_2031329_l.mp3 */; };
+		3B3F99131C604F0D004E17E9 /* 1770059653_2050944_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F99101C604F0D004E17E9 /* 1770059653_2050944_l.mp3 */; };
+		3B3F99141C604F0D004E17E9 /* 1771694697_4194836_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F99111C604F0D004E17E9 /* 1771694697_4194836_l.mp3 */; };
 		3BA567BC1C5F450000D20F8E /* MusicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA567BB1C5F450000D20F8E /* MusicHandler.m */; };
+		3BA567BF1C5F555200D20F8E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA567BE1C5F555200D20F8E /* Track.m */; };
 		3BC8FE6F1C423FBA000FE54B /* MusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8FE6E1C423FBA000FE54B /* MusicController.m */; };
 		3BC8FE711C423FD3000FE54B /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8FE701C423FD3000FE54B /* Music.storyboard */; };
 		3BC8FE9E1C424B38000FE54B /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8FE741C424B38000FE54B /* arrow_down.png */; };
@@ -276,8 +281,15 @@
 		3B3311F01C4508B200EABF17 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		3B3312011C450AA100EABF17 /* UIView+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animations.h"; sourceTree = "<group>"; };
 		3B3312021C450AA100EABF17 /* UIView+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animations.m"; sourceTree = "<group>"; };
+		3B3F990C1C604CBA004E17E9 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		3B3F990D1C604CBA004E17E9 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		3B3F990F1C604F0D004E17E9 /* 1770040300_2031329_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770040300_2031329_l.mp3; sourceTree = "<group>"; };
+		3B3F99101C604F0D004E17E9 /* 1770059653_2050944_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770059653_2050944_l.mp3; sourceTree = "<group>"; };
+		3B3F99111C604F0D004E17E9 /* 1771694697_4194836_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1771694697_4194836_l.mp3; sourceTree = "<group>"; };
 		3BA567BA1C5F450000D20F8E /* MusicHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHandler.h; sourceTree = "<group>"; };
 		3BA567BB1C5F450000D20F8E /* MusicHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHandler.m; sourceTree = "<group>"; };
+		3BA567BD1C5F555200D20F8E /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		3BA567BE1C5F555200D20F8E /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		3BC8FE6D1C423FBA000FE54B /* MusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicController.h; sourceTree = "<group>"; };
 		3BC8FE6E1C423FBA000FE54B /* MusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicController.m; sourceTree = "<group>"; };
 		3BC8FE701C423FD3000FE54B /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
@@ -625,6 +637,9 @@
 		3BC8FE721C424B38000FE54B /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				3B3F990F1C604F0D004E17E9 /* 1770040300_2031329_l.mp3 */,
+				3B3F99101C604F0D004E17E9 /* 1770059653_2050944_l.mp3 */,
+				3B3F99111C604F0D004E17E9 /* 1771694697_4194836_l.mp3 */,
 				3BC8FE731C424B38000FE54B /* arrow_down.imageset */,
 				3BC8FE761C424B38000FE54B /* big_pause_button.imageset */,
 				3BC8FE791C424B38000FE54B /* big_play_button.imageset */,
@@ -785,6 +800,10 @@
 				3B3312021C450AA100EABF17 /* UIView+Animations.m */,
 				3BA567BA1C5F450000D20F8E /* MusicHandler.h */,
 				3BA567BB1C5F450000D20F8E /* MusicHandler.m */,
+				3BA567BD1C5F555200D20F8E /* Track.h */,
+				3BA567BE1C5F555200D20F8E /* Track.m */,
+				3B3F990C1C604CBA004E17E9 /* NSString+Additions.h */,
+				3B3F990D1C604CBA004E17E9 /* NSString+Additions.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -962,10 +981,13 @@
 				3BC8FEB61C424B38000FE54B /* prev_song.png in Resources */,
 				3BC8FEB71C424B38000FE54B /* Contents.json in Resources */,
 				3BC8FEA31C424B38000FE54B /* Contents.json in Resources */,
+				3B3F99121C604F0D004E17E9 /* 1770040300_2031329_l.mp3 in Resources */,
+				3B3F99141C604F0D004E17E9 /* 1771694697_4194836_l.mp3 in Resources */,
 				3BF517521C3DFDAE00EEAE70 /* Main.storyboard in Resources */,
 				3BC8FEA01C424B38000FE54B /* big_pause_button.png in Resources */,
 				3BC8FEB41C424B38000FE54B /* next_song.png in Resources */,
 				3B05CEB31C3F549000C982B3 /* MJRefresh.bundle in Resources */,
+				3B3F99131C604F0D004E17E9 /* 1770059653_2050944_l.mp3 in Resources */,
 				3BC8FEBA1C424B38000FE54B /* shuffle_icon.png in Resources */,
 				3BC8FEB11C424B38000FE54B /* Contents.json in Resources */,
 				3BC8FEAD1C424B38000FE54B /* Contents.json in Resources */,
@@ -1008,6 +1030,7 @@
 				3BC8FEF51C425255000FE54B /* DOUEAGLView.m in Sources */,
 				3B05CF021C3F8FBD00C982B3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				3B05CEAF1C3F549000C982B3 /* MJRefreshBackStateFooter.m in Sources */,
+				3BA567BF1C5F555200D20F8E /* Track.m in Sources */,
 				3B3311CB1C44F09A00EABF17 /* GVUserDefaults.m in Sources */,
 				3BF5174C1C3DFDAE00EEAE70 /* AppDelegate.m in Sources */,
 				3B05CEFE1C3F8FBD00C982B3 /* MASLayoutConstraint.m in Sources */,
@@ -1066,6 +1089,7 @@
 				3B05CED41C3F555600C982B3 /* MJProperty.m in Sources */,
 				3B05CEB41C3F549000C982B3 /* MJRefreshConst.m in Sources */,
 				3B05CED81C3F555600C982B3 /* NSObject+MJCoding.m in Sources */,
+				3B3F990E1C604CBA004E17E9 /* NSString+Additions.m in Sources */,
 				3B3311CE1C4507DD00EABF17 /* BaseHelper.m in Sources */,
 				3B05CEAD1C3F549000C982B3 /* MJRefreshBackGifFooter.m in Sources */,
 				3B05CF001C3F8FBD00C982B3 /* MASViewConstraint.m in Sources */,

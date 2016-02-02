@@ -13,6 +13,13 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+Animations.h"
 #import "MusicHandler.h"
+#import "Track.h"
+#import "NSString+Additions.h"
+
+
+static void *kStatusKVOKey = &kStatusKVOKey;
+static void *kDurationKVOKey = &kDurationKVOKey;
+static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 @interface MusicController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingContraint;
@@ -38,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
 @property (strong, nonatomic) UIVisualEffectView *visualEffectView;
+
+@property (nonatomic,assign) BOOL musicIsPlaying;
 
 @end
 
@@ -72,6 +81,23 @@
 - (IBAction)musicToggleButtonClicked:(id)sender {
 }
 - (IBAction)musicNextButtonClicked:(id)sender {
+    if (_musicEntities.count == 1) {
+        return;
+    }
+    if (_musicCycleType == MusicCycleTypeShuffle && _musicEntities.count >2) {
+        [self setupRandomMusicIfNeeded];
+    }
+    
+}
+
+
+- (void)setupRandomMusicIfNeeded{
+    [self  loadOriginArrayIfNeeded];
+    int t = arc4random()%_originArray.count;
+    _randomArray[0] = _originArray[t];
+    _originArray[t] = _originArray.lastObject;
+    [_originArray removeLastObject];
+    self.currentIndex = [_randomArray[0] integerValue];
 }
 
 
@@ -82,7 +108,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self adapterIphone4];
-    _musicDurationTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSliderValue) userInfo:nil repeats:YES];
+    _musicDurationTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSliderValue:) userInfo:nil repeats:YES];
     _currentIndex = 0;
     _sharedIndicator = [ChildIndicatorView sharedInstance];
     _originArray = [NSMutableArray array];
@@ -231,6 +257,18 @@
 }
 
 
+
+- (void)setMusicIsPlaying:(BOOL)musicIsPlaying{
+    _musicIsPlaying = musicIsPlaying;
+    if (_musicIsPlaying) {
+        [_musicToggleButton setImage:[UIImage imageNamed:@"big_pause_button"] forState:UIControlStateNormal];
+        
+    }else{
+        [_musicToggleButton setImage:[UIImage imageNamed:@"big_play_button"] forState:UIControlStateNormal];
+    }
+}
+
+
 #pragma mark music convenient method
 
 -(void) loadPreviousAndNextMusicImage{
@@ -240,8 +278,66 @@
 
 
 #pragma mark - handle music slider
--(void)updateSliderValue{
+-(void)updateSliderValue:(id)timer{
+    if (!_streamer) {
+        return;
+    }
+    if (_streamer.status == DOUAudioStreamerFinished) {
+        [_streamer play];
+    }
+    if ([_streamer duration] == 0) {
+        [_musicSlider setValue:0.0f animated:NO];
+    }else{
+        if (_streamer.currentTime >= _streamer.duration) {
+            _streamer.currentTime -= _streamer.duration;
+        }
+        [_musicSlider setValue:[_streamer currentTime] / [_streamer duration] animated:YES];
+        [self updateProgressLabelValue];
+    }
     
+}
+
+
+- (void)updateProgressLabelValue{
+    _beginTimeLabel.text = [NSString timeIntervalToMMSSFormat:_streamer.currentTime];
+    _endTimeLabel.text = [NSString timeIntervalToMMSSFormat:_streamer.duration];
+}
+
+
+- (void)updateStatus{
+   
+    self.musicIsPlaying = NO;
+    _sharedIndicator.state = IndicatorViewStateStopped;
+    switch ([_streamer status]) {
+        case DOUAudioStreamerPlaying:
+            self.musicIsPlaying = YES;
+            _sharedIndicator.state = IndicatorViewStatePlaying;
+            break;
+        case DOUAudioStreamerPaused:
+            break;
+        case DOUAudioStreamerIdle:
+            break;
+        case DOUAudioStreamerFinished:
+            if (_musicCycleType ==  MusicCycleTypeLoopSingle) {
+                [_streamer play];
+            }else{
+                [self musicNextButtonClicked:nil];
+            }
+            
+            break;
+            case DOUAudioStreamerBuffering:
+            _sharedIndicator.state = IndicatorViewStatePlaying;
+            break;
+            
+            case DOUAudioStreamerError:
+            break;
+            
+    }
+    [self updateMusicsCellsState];
+}
+
+
+- (void)updateBufferingStatus{
     
 }
 
@@ -258,7 +354,73 @@
     [self loadPreviousAndNextMusicImage];
     
     [MusicHandler configNowPlayingInfoCenter];
+    Track *track = [[Track alloc] init];
+//    track.audioFileURL = [NSURL URLWithString:_musicEntity.music_url];
+    
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:_musicEntity.fileName ofType:@"mp3"];
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath];
+    track.audioFileURL = fileURL;
+    
+//    NSString *url = _musicEntity.music_url;
+//    NSURL *fileURL = [NSURL URLWithString:url];
+    
+
+  
+    @try {
+        [self removeStreamerObserver];
+    }
+    @catch (NSException *exception) {
+        
+        
+    }
+    
+    _streamer = nil;
+    _streamer = [DOUAudioStreamer streamerWithAudioFile:track];
+    
+    [self addStreamerObserver];
+    [self.streamer play];
+
 }
+
+
+
+- (void)removeStreamerObserver{
+    [_streamer removeObserver:self forKeyPath:@"status"];
+    [_streamer removeObserver:self forKeyPath:@"duration"];
+    [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
+    
+}
+
+
+-(void)addStreamerObserver{
+    [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
+    [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
+    [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
+    
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"status"]) {
+        [self performSelector:@selector(updateStatus)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }else if ([keyPath isEqualToString:@"duration"]){
+        [self performSelector:@selector(updateSliderValue:)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }else if ([keyPath isEqualToString:@"status"]){
+        [self performSelector:@selector(updateBufferingStatus)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }else{
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+
 
 
 #pragma mark - check current index
