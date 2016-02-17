@@ -425,6 +425,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 
+
+
+
 -(void)addStreamerObserver{
     [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
     [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];

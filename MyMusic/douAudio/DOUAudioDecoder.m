@@ -227,6 +227,8 @@ typedef struct {
     }
   }
 
+    
+    
   _decodingContext.afio.afid = inputFile;
   _decodingContext.afio.srcBufferSize = (UInt32)_bufferSize;
   _decodingContext.afio.srcBuffer = malloc(_decodingContext.afio.srcBufferSize);
