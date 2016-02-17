@@ -141,24 +141,24 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6t-4Z-zrH">
                                         <rect key="frame" x="8" y="0.0" width="304" height="36"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-eS-Kz9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-eS-Kz9">
                                                 <rect key="frame" x="0.0" y="8" width="35" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="7Kg-nv-l2g"/>
                                                     <constraint firstAttribute="height" constant="21" id="sdD-8K-ws5"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-Wm-mC7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-Wm-mC7">
                                                 <rect key="frame" x="269" y="7" width="35" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="0Um-Ro-qdU"/>
                                                     <constraint firstAttribute="height" constant="21" id="HQd-TE-MKk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C1s-QD-toV" customClass="MusicSlider">
@@ -166,6 +166,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="b1R-0g-sMf"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="didChange:" destination="PMZ-Zu-jnz" eventType="valueChanged" id="RDn-uU-MKB"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -183,13 +186,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAh-ft-X71">
                                         <rect key="frame" x="0.0" y="36" width="320" height="72"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27W-eD-TcZ">
-                                                <rect key="frame" x="64" y="0.0" width="64" height="72"/>
-                                                <state key="normal" image="prev_song"/>
-                                                <connections>
-                                                    <action selector="musicPreviousButtonClikcked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="471-hO-th0"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReS-fN-5nc">
                                                 <rect key="frame" x="128" y="0.0" width="64" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -214,6 +210,13 @@
                                                 <state key="normal" image="next_song"/>
                                                 <connections>
                                                     <action selector="musicNextButtonClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="L2w-wY-fec"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27W-eD-TcZ">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="72"/>
+                                                <state key="normal" image="prev_song"/>
+                                                <connections>
+                                                    <action selector="musicPreviousButtonClikcked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="471-hO-th0"/>
                                                 </connections>
                                             </button>
                                         </subviews>

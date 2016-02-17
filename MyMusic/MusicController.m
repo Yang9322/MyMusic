@@ -77,8 +77,29 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 - (IBAction)musicCycleButtonClicked:(id)sender {
 }
 - (IBAction)musicPreviousButtonClikcked:(id)sender {
+    
+    if (_musicEntities.count == 1) {
+        return;
+    }
+    
+    if (_musicCycleType == MusicCycleTypeShuffle && _musicEntities.count > 2) {
+        [self setupRandomMusicIfNeeded];
+    }else{
+        if ( _currentIndex == 0 || [self currentIndexIsInvalid]) {
+            self.currentIndex = _musicEntities.count - 1;
+        }else{
+            self.currentIndex --;
+        }
+    }
+    [self createStreamer];
 }
 - (IBAction)musicToggleButtonClicked:(id)sender {
+    
+    if (_streamer.status == DOUAudioStreamerPlaying) {
+        [_streamer pause];
+    }else{
+        [_streamer play];
+    }
 }
 - (IBAction)musicNextButtonClicked:(id)sender {
     if (_musicEntities.count == 1) {
@@ -86,10 +107,22 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }
     if (_musicCycleType == MusicCycleTypeShuffle && _musicEntities.count >2) {
         [self setupRandomMusicIfNeeded];
+    }else{
+        [self checkNextIndexValue];
     }
-    
+    [self createStreamer];
 }
 
+
+
+-(void)checkNextIndexValue{
+    NSInteger lastIndex = _musicEntities.count - 1;
+    if (_currentIndex == lastIndex || [self currentIndexIsInvalid]) {
+        self.currentIndex = 0 ;
+    }else{
+        self.currentIndex ++;
+    }
+}
 
 - (void)setupRandomMusicIfNeeded{
     [self  loadOriginArrayIfNeeded];
@@ -472,14 +505,15 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     return _musicEntities[_currentIndex];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)didChange:(id)sender {
+    if (_streamer.status == DOUAudioStreamerFinished) {
+        _streamer = nil;
+        [self createStreamer];
+    }
+    
+    [_streamer setCurrentTime:[_streamer duration] * _musicSlider.value];
+    [self updateProgressLabelValue];
 }
-*/
+
 
 @end
