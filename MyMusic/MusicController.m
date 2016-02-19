@@ -39,6 +39,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 @property (weak, nonatomic) IBOutlet MusicSlider *musicSlider;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *musicTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *singerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroudImageView;
@@ -190,9 +191,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)setupMusicViewWithMusicEntity:(MusicEntity *)entity{
     _musicEntity = entity;
-    _musicTitleLabel.text = _musicEntity.title;
     _singerLabel.text = _musicEntity.artist;
     _musicTitleLabel.text = _musicTitle;
+    _songNameLabel.text = _musicEntity.title;
     [self setupBackgroundImage];
     [self checkMusicFavoritedIcon];
 }

@@ -70,14 +70,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmt-kb-Kku">
-                                        <rect key="frame" x="139" y="45.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="139" y="45" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knr-PC-vIA">
-                                        <rect key="frame" x="8" y="25" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knr-PC-vIA">
+                                        <rect key="frame" x="8" y="23" width="30" height="34"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -103,24 +102,24 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-pc-7ID">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-pc-7ID">
                                         <rect key="frame" x="264" y="8" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="C1V-a7-D57"/>
                                             <constraint firstAttribute="width" constant="46" id="rOG-2k-Ddn"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="arrow_down"/>
                                         <connections>
                                             <action selector="dismissBtnClicked:" destination="PMZ-Zu-jnz" eventType="touchUpInside" id="VRQ-98-YvJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkI-nc-lKX">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkI-nc-lKX">
                                         <rect key="frame" x="10" y="8" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="GTR-mz-r3M"/>
                                             <constraint firstAttribute="width" constant="46" id="ZbC-Ai-xp2"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="menu"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -311,11 +310,12 @@
                         <outlet property="menuButton" destination="WPt-y6-hio" id="2fQ-Ag-Tdk"/>
                         <outlet property="musicCycleButton" destination="F2v-x3-7zM" id="vgr-GP-s5b"/>
                         <outlet property="musicSlider" destination="C1s-QD-toV" id="RUp-m9-C3o"/>
-                        <outlet property="musicTitleLabel" destination="ANL-Y5-j43" id="MdY-gh-e7F"/>
+                        <outlet property="musicTitleLabel" destination="r8n-NA-D00" id="1fY-Tq-uVe"/>
                         <outlet property="musicToggleButton" destination="ReS-fN-5nc" id="k43-lL-xlH"/>
                         <outlet property="nextMusicButton" destination="yR8-or-Hc4" id="TXg-bT-5rH"/>
                         <outlet property="previousMusicButton" destination="27W-eD-TcZ" id="CrQ-Nh-80G"/>
                         <outlet property="singerLabel" destination="rmt-kb-Kku" id="rcj-TV-jKs"/>
+                        <outlet property="songNameLabel" destination="ANL-Y5-j43" id="glz-V1-WTi"/>
                         <outlet property="trailingContraints" destination="TP3-8H-9dt" id="TKW-91-r75"/>
                     </connections>
                 </viewController>
@@ -325,7 +325,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_down" width="22" height="13"/>
         <image name="big_play_button" width="60" height="60"/>
+        <image name="menu" width="25" height="17"/>
         <image name="more_icon" width="25" height="23"/>
         <image name="next_song" width="20" height="28"/>
         <image name="prev_song" width="20" height="28"/>
