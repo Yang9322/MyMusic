@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *music_url;
 @property (nonatomic, copy) NSString *pic;
 @property (nonatomic, copy) NSString *artist;
-@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *file_name;
 
 @property (nonatomic, assign) BOOL isFavorited;
 

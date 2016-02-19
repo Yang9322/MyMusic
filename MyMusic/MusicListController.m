@@ -93,7 +93,6 @@
     
     NSDictionary *dict = [self dictionaryWithContensOfJSON:@"music_list.json"];
      self.musicEntities = [MusicEntity mj_objectArrayWithKeyValuesArray:dict[@"data"]];
-    [_musicEntities addObjectsFromArray:self.musicEntities];
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
 }

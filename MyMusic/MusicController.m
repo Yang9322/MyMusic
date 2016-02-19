@@ -121,6 +121,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         self.currentIndex = 0 ;
     }else{
         self.currentIndex ++;
+        
+        HYDBAnyVar(self.currentIndex);
     }
 }
 
@@ -378,10 +380,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 #pragma mark audio handler
 
 -(void)createStreamer{
+    
+    HYDBAnyVar(_specialIndex);
     if (_specialIndex > 0) {
         _currentIndex = _specialIndex;
         _specialIndex = 0;
     }
+    HYDBAnyVar(_musicEntities);
     [self setupMusicViewWithMusicEntity:_musicEntities[_currentIndex]];
 
     [self loadPreviousAndNextMusicImage];
@@ -390,7 +395,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     Track *track = [[Track alloc] init];
 //    track.audioFileURL = [NSURL URLWithString:_musicEntity.music_url];
     
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:_musicEntity.fileName ofType:@"mp3"];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:_musicEntity.file_name ofType:@"mp3"];
     NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath];
     track.audioFileURL = fileURL;
     

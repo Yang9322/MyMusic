@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B05CE681C3F4E8000C982B3 /* music_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B05CE671C3F4E7F00C982B3 /* music_list.json */; };
 		3B05CE6C1C3F50B500C982B3 /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B05CE6B1C3F50B500C982B3 /* MusicCell.m */; };
 		3B05CE6F1C3F514D00C982B3 /* MusicIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B05CE6E1C3F514D00C982B3 /* MusicIndicatorView.m */; };
 		3B05CE731C3F528900C982B3 /* MusicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B05CE721C3F528900C982B3 /* MusicEntity.m */; };
@@ -101,6 +100,7 @@
 		3BC8FEF61C425255000FE54B /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8FEE21C425255000FE54B /* DOUMPMediaLibraryAssetLoader.m */; };
 		3BC8FEF71C425255000FE54B /* DOUSimpleHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8FEE41C425255000FE54B /* DOUSimpleHTTPRequest.m */; };
 		3BC8FEF81C425255000FE54B /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8FEE61C425255000FE54B /* NSData+DOUMappedFile.m */; };
+		3BE39D021C76C2E600AB7BC7 /* music_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE39D011C76C2E600AB7BC7 /* music_list.json */; };
 		3BF517491C3DFDAE00EEAE70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF517481C3DFDAE00EEAE70 /* main.m */; };
 		3BF5174C1C3DFDAE00EEAE70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5174B1C3DFDAE00EEAE70 /* AppDelegate.m */; };
 		3BF517521C3DFDAE00EEAE70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BF517501C3DFDAE00EEAE70 /* Main.storyboard */; };
@@ -110,7 +110,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B05CE671C3F4E7F00C982B3 /* music_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music_list.json; sourceTree = "<group>"; };
 		3B05CE6A1C3F50B500C982B3 /* MusicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
 		3B05CE6B1C3F50B500C982B3 /* MusicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		3B05CE6D1C3F514D00C982B3 /* MusicIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicIndicatorView.h; sourceTree = "<group>"; };
@@ -306,6 +305,7 @@
 		3BC8FEE41C425255000FE54B /* DOUSimpleHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUSimpleHTTPRequest.m; sourceTree = "<group>"; };
 		3BC8FEE51C425255000FE54B /* NSData+DOUMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DOUMappedFile.h"; sourceTree = "<group>"; };
 		3BC8FEE61C425255000FE54B /* NSData+DOUMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DOUMappedFile.m"; sourceTree = "<group>"; };
+		3BE39D011C76C2E600AB7BC7 /* music_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music_list.json; sourceTree = "<group>"; };
 		3BF517441C3DFDAE00EEAE70 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF517481C3DFDAE00EEAE70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BF5174A1C3DFDAE00EEAE70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -686,7 +686,7 @@
 				3BC8FE721C424B38000FE54B /* Music */,
 				3BF517551C3DFDAE00EEAE70 /* LaunchScreen.storyboard */,
 				3BF517581C3DFDAE00EEAE70 /* Info.plist */,
-				3B05CE671C3F4E7F00C982B3 /* music_list.json */,
+				3BE39D011C76C2E600AB7BC7 /* music_list.json */,
 				3BC8FEBD1C424BAF000FE54B /* MyMusic.pch */,
 				3BF517471C3DFDAE00EEAE70 /* Supporting Files */,
 			);
@@ -763,11 +763,11 @@
 				3BC8FE711C423FD3000FE54B /* Music.storyboard in Resources */,
 				3B05CEFA1C3F8FBD00C982B3 /* Info.plist in Resources */,
 				3B3F99121C604F0D004E17E9 /* 1770040300_2031329_l.mp3 in Resources */,
+				3BE39D021C76C2E600AB7BC7 /* music_list.json in Resources */,
 				3B3F99141C604F0D004E17E9 /* 1771694697_4194836_l.mp3 in Resources */,
 				3BF517521C3DFDAE00EEAE70 /* Main.storyboard in Resources */,
 				3B05CEB31C3F549000C982B3 /* MJRefresh.bundle in Resources */,
 				3B3F99131C604F0D004E17E9 /* 1770059653_2050944_l.mp3 in Resources */,
-				3B05CE681C3F4E8000C982B3 /* music_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

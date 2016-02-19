@@ -45,8 +45,11 @@ static const char MJRefreshHeaderKey = '\0';
     }
 }
 
+
 - (MJRefreshHeader *)mj_header
 {
+    
+
     return objc_getAssociatedObject(self, &MJRefreshHeaderKey);
 }
 
@@ -69,6 +72,8 @@ static const char MJRefreshFooterKey = '\0';
 
 - (MJRefreshFooter *)mj_footer
 {
+    
+    
     return objc_getAssociatedObject(self, &MJRefreshFooterKey);
 }
 
